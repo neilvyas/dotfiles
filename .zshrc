@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/nvyas/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -58,7 +58,7 @@ export PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/neil/b
 
 source $ZSH/oh-my-zsh.sh
 # Source paths for dotfiles.
-source paths.sh
+source ~/dotfiles/paths.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
