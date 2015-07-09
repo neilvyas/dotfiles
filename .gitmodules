@@ -22,3 +22,6 @@
 [submodule ".vim/bundle/vimroom"]
 	path = .vim/bundle/vimroom
 	url = https://github.com/mikewest/vimroom
+[submodule ".vim/bundle/unite-grep-vcs"]
+	path = .vim/bundle/unite-grep-vcs
+	url = https://github.com/lambdalisue/unite-grep-vcs
