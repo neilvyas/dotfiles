@@ -15,6 +15,8 @@ set wildmenu
 set lazyredraw
 set showmatch " highlight matching [({})]
 
+let mapleader=","
+
 set incsearch " instant search.
 set hlsearch  " highlight results
 nnoremap <leader><space> :nohlsearch<CR>
@@ -40,8 +42,6 @@ set tabstop=2
 set softtabstop=2
 set expandtab " tabs are spaces.
 
-let mapleader=","
-
 " Move around splits more naturally.
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -51,7 +51,7 @@ nnoremap <C-H> <C-W><C-H>
 " PLUGIN CONFIGS.
 "
 " VimRoom, for writing prose.
-let g:vimroom_sidebar_height = 0
+let g:vimroom_sidebar_height=0
 let g:vimroom_width=100
 
 "Graphical Undo.
