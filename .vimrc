@@ -41,7 +41,7 @@ set expandtab " tabs are spaces.
 
 let mapleader=","
 "Graphical Undo.
-nnoremap <leader>u :GundoTaggle<CR>
+nnoremap <leader>u :GundoToggle<CR>
 
 " Unite bindings.
 nnoremap <C-p> :Unite file_rec/async<CR>
