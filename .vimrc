@@ -102,7 +102,7 @@ inoremap <expr><CR> pumvisible() ? neocomplete#close_popup() :"\<CR>"
 
 " Vim Powerline.
 set laststatus=2
-source /Users/nvyas/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim/plugin/powerline.vim
+source $POWERLINE_BINDINGS/vim/plugin/powerline.vim
 
 " NERDTree.
 map <C-n> :NERDTreeToggle<CR>
