@@ -8,6 +8,7 @@ set backspace=indent,eol,start
 colorscheme solarized
 set background=light
 set number
+set colorcolumn=101
 set showcmd
 set cursorline
 set wildmenu
@@ -40,6 +41,19 @@ set softtabstop=2
 set expandtab " tabs are spaces.
 
 let mapleader=","
+
+" Move around splits more naturally.
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" PLUGIN CONFIGS.
+"
+" VimRoom, for writing prose.
+let g:vimroom_sidebar_height = 0
+let g:vimroom_width=100
+
 "Graphical Undo.
 nnoremap <leader>u :GundoToggle<CR>
 
@@ -91,3 +105,17 @@ source /Users/nvyas/Library/Python/2.7/lib/python/site-packages/powerline/bindin
 
 " NERDTree.
 map <C-n> :NERDTreeToggle<CR>
+" Function for automatically closing if this is the only buffer left.
+function! s:CloseIfOnlyControlWinLeft()
+  if winnr("$") != 1
+    return
+  endif
+  if (exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) != -1)
+        \ || &buftype == 'quickfix'
+    q
+  endif
+endfunction
+augroup CloseIfOnlyControlWinLeft
+  au!
+  au BufEnter * call s:CloseIfOnlyControlWinLeft()
+augroup END
