@@ -58,7 +58,7 @@ export PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/neil/b
 
 source $ZSH/oh-my-zsh.sh
 # Source paths for dotfiles.
-source paths.sh
+source $HOME/dotfiles/paths.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
