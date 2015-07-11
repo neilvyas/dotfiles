@@ -58,9 +58,8 @@ let g:vimroom_width=100
 nnoremap <leader>u :GundoToggle<CR>
 
 " Unite bindings.
-" Also includes Unite git_grep
 nnoremap <C-p> :Unite file_rec/async<CR>
-nnoremap <space>/ :Unite grep/git:.<CR>
+nnoremap <space>/ :Unite grep:.<CR>
 let g:unite_source_history_yank_enable = 1
 nnoremap <space>y :Unite history/yank<CR>
 nnoremap <space>s :Unite -quick-match buffer<CR>
