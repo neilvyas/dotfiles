@@ -58,9 +58,8 @@ let g:vimroom_width=100
 nnoremap <leader>u :GundoToggle<CR>
 
 " Unite bindings.
-" Also includes Unite git_grep
 nnoremap <C-p> :Unite file_rec/async<CR>
-nnoremap <space>/ :Unite grep/git:.<CR>
+nnoremap <space>/ :Unite grep:.<CR>
 let g:unite_source_history_yank_enable = 1
 nnoremap <space>y :Unite history/yank<CR>
 nnoremap <space>s :Unite -quick-match buffer<CR>
@@ -75,7 +74,6 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#sources#dictionary#dictionaries = {
   \ 'default':    '',
   \ 'scala':      $HOME.'/.vim/bundle/vim-scala/dict/scala.dict',
-  \ 'python':     $HOME.'/.vim/dict/python.dict'
   \ }
 
 " Tab completion.
@@ -99,6 +97,18 @@ inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Close popup by <Space>.
 inoremap <expr><CR> pumvisible() ? neocomplete#close_popup() :"\<CR>"
+
+" Omnicompletion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
 
 " Vim Powerline.
 set laststatus=2
