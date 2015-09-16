@@ -86,3 +86,8 @@ source $HOME/sensitive.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+export PYTHONPATH="$(find $HOME/allcode -maxdepth 2 -type d | sed '/\/\./d' | tr '\n' ':' | sed 's/:$//')"
+
