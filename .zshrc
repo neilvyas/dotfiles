@@ -85,3 +85,8 @@ source $HOME/dotfiles/paths.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export PATH="/usr/texbin:/usr/local/sbin:$PATH"
+alias s="pmset sleepnow"
+
+#python
+alias py="python" 
