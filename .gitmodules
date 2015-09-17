@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/vim-fastunite"]
 	path = .vim/bundle/vim-fastunite
 	url = https://github.com/rstacruz/vim-fastunite
+[submodule ".vim/bundle/vim-buftabline"]
+	path = .vim/bundle/vim-buftabline
+	url = https://github.com/ap/vim-buftabline

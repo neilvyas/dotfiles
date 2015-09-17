@@ -27,6 +27,11 @@ set foldnestmax=10
 nnoremap <space> za " space un/folds.
 set foldmethod=indent
 
+"tabline
+set hidden
+nnoremap <C-N> :bnext<CR>
+nnoremap <C-B> :bprev<CR>
+
 " move vertically by visual lines.
 nnoremap j gj
 nnoremap k gk
@@ -51,6 +56,10 @@ nnoremap <C-H> <C-W><C-H>
 
 " Reverse order of lines.
 :command -range Rev :<line1>,<line2>!tail -r
+
+" for closing the scratch window automatically, e.g. with python
+" documentation.
+autocmd CompleteDone * pclose
 
 " PLUGIN CONFIGS.
 "
@@ -116,7 +125,7 @@ set laststatus=2
 source $POWERLINE_BINDINGS/vim/plugin/powerline.vim
 
 " NERDTree.
-map <C-n> :NERDTreeToggle<CR>
+map <leader>n :NERDTreeToggle<CR>
 " Function for automatically closing if this is the only buffer left.
 function! s:CloseIfOnlyControlWinLeft()
   if winnr("$") != 1
