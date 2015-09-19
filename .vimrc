@@ -67,6 +67,9 @@ autocmd CompleteDone * pclose
 let g:vimroom_sidebar_height=0
 let g:vimroom_width=100
 
+" Setting mark column color.
+highlight SignColumn ctermbg=7
+
 " Unite bindings.
 nnoremap <C-p> :Unite file_rec/async<CR>
 nnoremap <space>/ :Unite grep:.<CR>
