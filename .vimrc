@@ -62,7 +62,8 @@ nnoremap <C-H> <C-W><C-H>
 autocmd CompleteDone * pclose
 
 " PLUGIN CONFIGS.
-"
+set laststatus=2
+
 " VimRoom, for writing prose.
 let g:vimroom_sidebar_height=0
 let g:vimroom_width=100
@@ -122,10 +123,6 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
-
-" Vim Powerline.
-set laststatus=2
-source $POWERLINE_BINDINGS/vim/plugin/powerline.vim
 
 " NERDTree.
 map <leader>n :NERDTreeToggle<CR>
