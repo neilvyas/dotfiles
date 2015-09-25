@@ -62,7 +62,13 @@ nnoremap <C-H> <C-W><C-H>
 autocmd CompleteDone * pclose
 
 " PLUGIN CONFIGS.
+
+" Lightline
 set laststatus=2
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ }
+set noshowmode
 
 " VimRoom, for writing prose.
 let g:vimroom_sidebar_height=0
