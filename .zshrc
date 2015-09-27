@@ -98,3 +98,11 @@ alias s="pmset sleepnow"
 #python
 alias py="python" 
 
+#terminal stuff.
+bindkey -v
+
+#UT stuff.
+function dir() { finger $1@directory.utexas.edu }
+
+#git stuff.
+alias gbv="git log --oneline --abbrev-commit --all --graph --decorate --color"
