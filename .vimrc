@@ -69,6 +69,7 @@ let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ }
 set noshowmode
+let g:tmuxline_powerline_separators = 0
 
 " VimRoom, for writing prose.
 let g:vimroom_sidebar_height=0
