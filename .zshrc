@@ -91,7 +91,7 @@ source $HOME/sensitive.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-export PATH="/$HOME/.jenv/bin:usr/texbin:/usr/local/sbin:$PATH"
+export PATH="/$HOME/.jenv/bin:/usr/texbin:/usr/local/sbin:$PATH"
 eval "$(jenv init -)"
 alias s="pmset sleepnow"
 
