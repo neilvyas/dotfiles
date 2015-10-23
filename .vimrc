@@ -27,6 +27,10 @@ set foldnestmax=10
 nnoremap <space> za " space un/folds.
 set foldmethod=indent
 
+" cross-session paste via writing to tmp file.
+vmap <leader>y :w! /tmp/vitmp<CR>                                                                   
+nmap <leader>p :r! cat /tmp/vitmp<CR>
+
 "tabline
 set hidden
 nnoremap <C-N> :bnext<CR>
