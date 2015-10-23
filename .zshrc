@@ -106,3 +106,6 @@ function dir() { finger $1@directory.utexas.edu }
 
 #git stuff.
 alias gbv="git log --oneline --abbrev-commit --all --graph --decorate --color"
+
+#LaTeX stuff.
+export TEXINPUTS=".:~/latex:"
