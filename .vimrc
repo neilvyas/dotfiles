@@ -5,8 +5,8 @@ filetype plugin indent on
 " Strange backspace shenanigans.
 set backspace=indent,eol,start
 
-colorscheme solarized
-set background=light
+colorscheme gruvbox
+set background=dark
 set number
 set colorcolumn=101
 set showcmd
@@ -62,12 +62,15 @@ nnoremap <C-H> <C-W><C-H>
 " documentation.
 autocmd CompleteDone * pclose
 
+" Useful autocmds for e.g. rendering markdown and tex
+au BufWritePost ~/writings/*.md !render <afile>
+
 " PLUGIN CONFIGS.
 
 " Lightline
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
+      \ 'colorscheme': 'gruvbox',
       \ }
 set noshowmode
 let g:tmuxline_powerline_separators = 0
