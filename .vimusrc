@@ -1,0 +1,16 @@
+#colorscheme that is mostly term (light) background.
+#background=light => %s/black/black, and vice-versa/
+color tab green black
+color main magenta black
+color ruler black blue
+color songstatus blue black
+color playstatus blue black
+color error black red
+color input magenta black
+color suggestions green black
+
+#display settings.
+song-format (%artist%) - %album% | (%track%|✘) | %title%
+
+#keybindings
+map <Space> :toggle<CR>
