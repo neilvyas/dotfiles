@@ -113,3 +113,16 @@ alias gbv="git log --oneline --abbrev-commit --all --graph --decorate --color"
 
 #LaTeX stuff.
 export TEXINPUTS=".:~/latex:"
+
+#for rendering writings.
+render () {
+        d=$(date +"%A, %B %e, %Y")
+        b=$(echo $1 | cut -f 1 -d '.')
+        h="<center><small><i>$d</i></small></center>
+  <hr>"
+        cp $1 $1.bak
+        echo $h | cat - $1.bak > /tmp/out && mv /tmp/out $1.bak
+        pandoc -s -t html -c c.css -o $b.html $1.bak --self-contained
+        rm $1.bak
+}
+
