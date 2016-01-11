@@ -94,13 +94,16 @@ export EDITOR=vim
 #
 export PATH="/$HOME/.jenv/bin:/usr/texbin:/usr/local/sbin:$PATH"
 eval "$(jenv init -)"
-alias s="pmset sleepnow"
+alias sl="pmset sleepnow"
 
 #python
 alias py="python" 
+#incredible interpreter.
+alias bp="bpython"
 
 #terminal stuff.
 bindkey -v
+alias show="pygmentize"
 
 #UT stuff.
 function dir() { finger $1@directory.utexas.edu }
