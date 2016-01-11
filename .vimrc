@@ -15,6 +15,9 @@ set wildmenu
 set lazyredraw
 set showmatch " highlight matching [({})]
 
+" Syntax highlighting for odd extensions
+au BufNewFile,BufRead *.cls set filetype=tex
+
 let mapleader=","
 
 set incsearch " instant search.
