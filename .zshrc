@@ -57,7 +57,32 @@ plugins=(git history history-substring-search brew)
 
 # User configuration
 
-export PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/neil/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:$HOME/.cabal/bin/"
+# Giant Clod of Paths
+# TODO: Figure out which ones of these are disposable.
+py27="/Library/Frameworks/Python.framework/Versions/2.7/bin"
+home_bin="$HOME/bin"
+usr_local_bin="/usr/local/bin" #isn't this Homebrew?
+usr_local_sbin="/usr/local/sbin"
+usr_bin="/usr/bin"
+usr_sbin="/usr/sbin"
+bin="/bin"
+sbin="/sbin"
+x11_bin="/opt/X11/bin"
+git_bin="/usr/local/git/bin"
+cabal_bin="$HOME/.cabal/bin"
+jenv_bin="$HOME/.jenv/bin"
+jenv_shims="$HOME/.jenv/shims"
+#texbin="/usr/texbin" El Capitan breaks this location for MacTeX
+texbin="/Library/TeX/texbin"
+#set(['/Users/neil/.jenv/shims', '//Users/neil/.jenv/bin', '/Users/neil/.cabal/bin/', '/usr/bin', '/usr/sbin'])
+
+paths=($py27 $home_bin $usr_local_bin $usr_local_sbin $usr_bin $usr_sbin $bin $sbin $x11_bin \
+  $git_bin $cabal_bin $jenv_bin $jenv_shims $texbin)
+export PATH="${paths[*]// /:}"
+#for jenv manager.
+eval "$(jenv init -)"
+#LaTeX stuff.
+export TEXINPUTS=".:~/latex:"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -92,8 +117,6 @@ export EDITOR=vim
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-export PATH="/$HOME/.jenv/bin:/usr/texbin:/usr/local/sbin:$PATH"
-eval "$(jenv init -)"
 alias sl="pmset sleepnow"
 
 #python
@@ -111,8 +134,6 @@ function dir() { finger $1@directory.utexas.edu }
 #git stuff.
 alias gbv="git log --oneline --abbrev-commit --all --graph --decorate --color"
 
-#LaTeX stuff.
-export TEXINPUTS=".:~/latex:"
 
 #for rendering writings.
 render () {
