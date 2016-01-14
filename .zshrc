@@ -6,6 +6,7 @@ export ZSH=~/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 bindkey -v
+bindkey "^?" backward-delete-char # fixes backspacing after coming out of normal mode
 
 export KEYTIMEOUT=1
 ZSH_THEME="neil"
