@@ -128,6 +128,8 @@ alias bp="bpython"
 #terminal stuff.
 bindkey -v
 alias show="pygmentize"
+alias mviz="mpdviz --icolor=true"
+alias gcal="gcalcli"
 
 #UT stuff.
 function dir() { finger $1@directory.utexas.edu }
