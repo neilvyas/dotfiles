@@ -43,3 +43,6 @@
 [submodule ".vim/bundle/gruvbox"]
 	path = .vim/bundle/gruvbox
 	url = https://github.com/morhetz/gruvbox
+[submodule ".vim/bundle/nvim"]
+	path = .vim/bundle/nvim
+	url = https://github.com/cwoac/nvim
