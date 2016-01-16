@@ -157,9 +157,13 @@ viz () {
   local fname=~/.mpd/mpd.conf
   if [ "$1" = "on" ]; then
     sed -i "" "${START},${END}s/^#//" $fname
+    #what the fuck?
+    #killall mpd; mpd
     mviz
   else
     #fail if there is already a hash.
     sed -i "" "${START},${END}s/^#*/#/" $fname
+    #what the fuck?
+    #killall mpd; mpd
   fi
   }
