@@ -130,6 +130,7 @@ bindkey -v
 alias show="pygmentize"
 alias mviz="mpdviz --icolor=true"
 alias gcal="gcalcli"
+alias year="cal -y $(date +'%Y')"
 
 #UT stuff.
 function dir() { finger $1@directory.utexas.edu }
@@ -150,3 +151,15 @@ render () {
         rm $1.bak
 }
 
+#turning mpd audio viz on/off. it is CPU expensive so it's best to keep it off.
+viz () {
+  local START=23; local END=29
+  local fname=~/.mpd/mpd.conf
+  if [ "$1" = "on" ]; then
+    sed -i "" "${START},${END}s/^#//" $fname
+    mviz
+  else
+    #fail if there is already a hash.
+    sed -i "" "${START},${END}s/^#*/#/" $fname
+  fi
+  }
