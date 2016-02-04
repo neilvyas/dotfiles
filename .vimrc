@@ -1,4 +1,37 @@
-execute pathogen#infect()
+" NeoBundle stuff.
+" Required:
+set runtimepath^=~/.vim/bundle/neobundle.vim/
+
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
+
+NeoBundle 'morhetz/gruvbox'
+NeoBundle 'sjl/gundo.vim'
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'ap/vim-buftabline'
+NeoBundle 'kshenoy/vim-signature'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'edkolev/tmuxline.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'rstacruz/vim-fastunite'
+NeoBundle 'Shougo/vimproc.vim'
+NeoBundle 'mikewest/vimroom'
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
+call neobundle#end()
+
 syntax enable
 filetype plugin indent on
 
