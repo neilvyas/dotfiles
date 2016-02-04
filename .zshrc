@@ -134,6 +134,13 @@ alias year="cal -y $(date +'%Y')"
 
 #UT stuff.
 function dir() { finger $1@directory.utexas.edu }
+#school stuff specifically
+CDIR=~/Classes
+alias pde="cd $CDIR/M372K"
+alias eeml="cd $CDIR/EE381V_ML"
+alias aas="cd $CDIR/AAS325"
+alias real="cd $CDIR/M365C"
+alias classes="echo 'pde eeml aas real'"
 
 #git stuff.
 alias gbv="git log --oneline --abbrev-commit --all --graph --decorate --color"
