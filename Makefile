@@ -33,6 +33,6 @@ zsh:
 	ln -s paths.sh ~/paths.sh
 
 tmux:
-	ln -s .tmux.conf ~/.tmux.conf
-	ln -s .gruvbox_dark_tmux.conf ~/.gruvbox_dark_tmux.conf
-	ln -s .solarized_light_tmux.conf ~/.solarized_light_tmux.conf
+	ln -s `pwd`/.tmux.conf ~/.tmux.conf
+	ln -s `pwd`/.gruvbox_dark_tmux.conf ~/.gruvbox_dark_tmux.conf
+	ln -s `pwd`/.solarized_light_tmux.conf ~/.solarized_light_tmux.conf
