@@ -39,6 +39,7 @@ filetype plugin indent on
 set backspace=indent,eol,start
 
 colorscheme gruvbox
+let g:gruvbox_contrast_dark="medium"
 set background=dark
 set number
 set colorcolumn=101
@@ -76,6 +77,8 @@ nnoremap <C-B> :bprev<CR>
 nnoremap j gj
 nnoremap k gk
 
+"scrollwheel works as expected
+set mouse=a
 
 " highlight last inserted text
 "nnoremap gV `[v`]
@@ -116,7 +119,7 @@ let g:vimroom_sidebar_height=0
 let g:vimroom_width=100
 
 " Setting mark column color.
-highlight SignColumn ctermbg=7
+highlight SignColumn ctermbg=0
 
 " Unite bindings.
 nnoremap <C-p> :Unite file_rec/async<CR>
