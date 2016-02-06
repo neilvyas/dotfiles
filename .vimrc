@@ -149,7 +149,6 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 " Define Dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
   \ 'default':    '',
-  \ 'scala':      $HOME.'/.vim/bundle/vim-scala/dict/scala.dict',
   \ }
 
 " Tab completion.
