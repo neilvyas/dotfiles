@@ -25,6 +25,8 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'rstacruz/vim-fastunite'
 NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'mikewest/vimroom'
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'ervandew/supertab'
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
@@ -127,6 +129,16 @@ nnoremap <space>/ :Unite grep:.<CR>
 let g:unite_source_history_yank_enable = 1
 nnoremap <space>y :Unite history/yank<CR>
 nnoremap <space>s :Unite -quick-match buffer<CR>
+
+" supertab direction fixes
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+" ultiSnips bindings.
+let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
+
+let g:UltiSnipsExpandTrigger           = '<tab>'
+let g:UltiSnipsJumpForwardTrigger      = '<CR>'
+let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 
 " NeoComplete bindings.
 let g:acp_enableAtStartup = 0
