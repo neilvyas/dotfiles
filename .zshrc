@@ -140,7 +140,8 @@ alias pde="cd $CDIR/M372K"
 alias eeml="cd $CDIR/EE381V_ML"
 alias aas="cd $CDIR/AAS325"
 alias real="cd $CDIR/M365C"
-alias classes="echo 'pde eeml aas real'"
+alias jazz="cd $CDIR/MUS307"
+alias classes="echo 'pde eeml aas real jazz'"
 
 #git stuff.
 alias gbv="git log --oneline --abbrev-commit --all --graph --decorate --color"
