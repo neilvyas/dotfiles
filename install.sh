@@ -1,3 +1,5 @@
+# install zplug
+git clone https://github.com/zplug/zplug.git ~/.zplug 
 #add new terminal info settings to db
 #currently used for italic comments inside vim.
 tic xterm-256color-italic.terminfo
