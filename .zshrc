@@ -17,5 +17,8 @@ fi
 #local packages
 zplug "~/dotfiles", as:plugin, use:"*.sh", from:local
 
+export DISABLE_AUTO_TITLE="true"
+export EDITOR=vim
+
 # Then, source plugins and add commands to $PATH
 zplug load --verbose
