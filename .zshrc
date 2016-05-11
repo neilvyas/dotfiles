@@ -15,7 +15,7 @@ if ! zplug check --verbose; then
 fi
 
 #local packages
-zplug "~/dotfiles", as:plugin, use:"*.sh", ignore:"install.sh", from:local
+zplug "~/dotfiles", as:plugin, use:"*.sh", from:local
 
 # Then, source plugins and add commands to $PATH
 zplug load --verbose
