@@ -1,4 +1,7 @@
-" NeoBundle stuff.
+" vim:fdm=marker
+
+" Package management. {{{
+
 " Required:
 set runtimepath^=~/.vim/bundle/neobundle.vim/
 
@@ -9,17 +12,14 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
-
-NeoBundle 'noahfrederick/vim-noctu'
+" Appearances.
+NeoBundle 'noahfrederick/vim-noctu' " uses terminal colorscheme, so only 16 colors.
 " NeoBundle 'morhetz/gruvbox'
 NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'ap/vim-buftabline'
-NeoBundle 'kshenoy/vim-signature'
-NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'edkolev/tmuxline.vim'
+NeoBundle 'ap/vim-buftabline'
+
+" Infrastructural stuff.
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
@@ -31,14 +31,22 @@ NeoBundle 'Shougo/vimproc.vim', {
 \ }
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'rstacruz/vim-fastunite'
-NeoBundle 'Shougo/neoyank.vim'
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'ervandew/supertab'
+NeoBundle 'Shougo/neoyank.vim' " adds yank history as a source.
 NeoBundle 'Konfekt/FastFold'
+NeoBundle 'ervandew/supertab'
+
+" Better vim navigation.
+NeoBundle 'kshenoy/vim-signature'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-commentary'
+
+" IDE type stuff.
+NeoBundle 'SirVer/ultisnips'
 NeoBundle 'klen/python-mode'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'kien/rainbow_parentheses.vim'
+NeoBundle 'Raimondi/delimitMate'
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
@@ -46,13 +54,16 @@ NeoBundleCheck
 
 call neobundle#end()
 
+" }}}
+" Editor settings. {{{
+
 syntax enable
 filetype plugin indent on
 
 " Strange backspace shenanigans.
 set backspace=indent,eol,start
 
-" FIXME
+" FIXME: perhaps this should be more sophisticated.
 set t_Co=256
 
 colorscheme noctu
@@ -94,15 +105,8 @@ augroup END
 highlight ColorColumn ctermbg=233 " Grey7
 highlight CursorLine ctermbg=233 " Grey7
 
-let mapleader=","
-
-" <Leader>1: Toggle between paste mode
-nnoremap <silent> <Leader>1 :set paste!<cr>
-
-" <Leader>q: Quit all, very useful in vimdiff
-nnoremap <Leader>q :qa<cr>
-
-" <Leader>g: Fugitive shortcuts
+" Setting mark column color.
+highlight SignColumn ctermbg=0
 
 set incsearch " instant search.
 set hlsearch  " highlight results
@@ -150,7 +154,24 @@ nnoremap <C-H> <C-W><C-H>
 " documentation.
 autocmd CompleteDone * pclose
 
-" FILE FORMATS
+" }}}
+" Leader commands. {{{
+
+let mapleader=","
+
+" <Leader>1: Toggle between paste mode
+nnoremap <silent> <Leader>1 :set paste!<cr>
+
+" <Leader>q: Quit all, very useful in vimdiff
+nnoremap <Leader>q :qa<cr>
+
+" <Leader>g: Fugitive shortcuts
+
+" <Leader>m: Make in background with quickfix window.
+nnoremap <leader>m :silent make\|redraw!\|cc<CR>
+
+" }}}
+" FileType stuff. {{{
 set tabstop=2
 set softtabstop=2
 set expandtab " tabs are spaces.
@@ -164,11 +185,9 @@ au Filetype javascript,html,css setlocal tabstop=2 softtabstop=2 shiftwidth=2
 au BufNewFile,BufRead *.cls set filetype=tex
 au Filetype plaintex,tex,latex setlocal tabstop=2 softtabstop=2 shiftwidth=2 textwidth=100 
 
-" Makefile and external command stuff.  
-"calls make and displays first error, if any
-nnoremap <leader>m :silent make\|redraw!\|cc<CR>
+" }}}
+" PLUGIN CONFIGS. {{{
 
-" PLUGIN CONFIGS.
 " RainbowParentheses
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
@@ -197,14 +216,21 @@ let g:lightline = {
 set noshowmode
 let g:tmuxline_powerline_separators = 0
 
-" Setting mark column color.
-highlight SignColumn ctermbg=0
 
 " Unite bindings.
-nnoremap <C-p> :Unite file_rec/async -start-insert<CR>
-nnoremap <space>/ :Unite grep:.<CR>
+nnoremap <C-p> :Unite file_rec/async -start-insert -no-split<CR>
+nnoremap <space>/ :Unite grep:. -no-split<CR>
 nnoremap <C-y> :Unite history/yank<CR> " masks scroll up motion.
-nnoremap <C-s> :Unite -quick-match buffer<CR>
+nnoremap <C-b> :Unite -quick-match buffer<CR>
+" Custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  " Play nice with supertab
+  let b:SuperTabDisabled=1
+  " Enable navigation with control-j and control-k in insert mode
+  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+endfunction
 
 " supertab direction fixes
 let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -267,24 +293,4 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
 
-" NERDTree.
-map <leader>n :NERDTreeToggle<CR>          " Project Drawer
-let NERDTreeHijacknetrw=1
-nnoremap <leader>e :buffer NERD_tree_1<CR> " Split browser
-
-" Function for automatically closing if this is the only buffer left.
-function! s:CloseIfOnlyControlWinLeft()
-  if winnr("$") != 1
-    return
-  endif
-  if (exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) != -1)
-        \ || &buftype == 'quickfix'
-    q
-  endif
-endfunction
-augroup CloseIfOnlyControlWinLeft
-  au!
-  au BufEnter * call s:CloseIfOnlyControlWinLeft()
-augroup END
-
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+" }}}
