@@ -98,7 +98,7 @@ set smartcase " not caps-sensitive unless there's a capital letter.
 nnoremap <leader><space> :nohlsearch<CR>
 highlight Search cterm=bold,underline ctermfg=yellow ctermbg=NONE
 
-highlight Comment cterm=italic
+highlight Comment cterm=NONE
 
 set foldenable
 set foldlevelstart=10
