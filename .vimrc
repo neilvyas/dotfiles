@@ -70,6 +70,10 @@ set noswapfile
 " Lower the delay of mode switching.
 set timeout timeoutlen=200 ttimeoutlen=1
 
+" Since <C-f> is my tmux prefix.
+set cedit=<C-g>
+set history=200
+
 " Emphasize current splits.
 set colorcolumn=101 cul " on startup, since below is on WinEnter.
 augroup BgHighlight
