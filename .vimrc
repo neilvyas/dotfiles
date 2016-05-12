@@ -102,7 +102,7 @@ set smartcase " not caps-sensitive unless there's a capital letter.
 nnoremap <leader><space> :nohlsearch<CR>
 highlight Search cterm=bold,underline ctermfg=yellow ctermbg=NONE
 
-highlight Comment cterm=NONE
+highlight Comment cterm=NONE " italic for iTerm.
 
 set foldenable
 set foldlevelstart=10
