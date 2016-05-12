@@ -249,7 +249,6 @@ let g:jedi#auto_vim_configuration = 0
 let g:jedi#popup_on_dot = 0
 let g:neocomplete#force_omni_input_patterns.python =
 \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
