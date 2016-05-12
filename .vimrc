@@ -14,8 +14,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Note: You don't set neobundle setting in .gvimrc!
 
 NeoBundle 'noahfrederick/vim-noctu'
-NeoBundle 'gilgigilgil/anderson.vim'
-NeoBundle 'sjl/gundo.vim'
+" NeoBundle 'morhetz/gruvbox'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'ap/vim-buftabline'
 NeoBundle 'kshenoy/vim-signature'
