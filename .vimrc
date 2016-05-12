@@ -205,7 +205,6 @@ let g:UltiSnipsJumpForwardTrigger      = '<CR>'
 let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 
 " NeoComplete bindings.
-let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
@@ -238,15 +237,16 @@ inoremap <expr><C-e>  neocomplete#cancel_popup()
 inoremap <expr><CR> pumvisible() ? neocomplete#close_popup() :"\<CR>"
 
 " Omnicompletion.
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=jedi#completions
 let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-endif 
+let g:jedi#popup_on_dot = 0
 let g:neocomplete#force_omni_input_patterns.python =
 \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
