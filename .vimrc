@@ -20,9 +20,17 @@ NeoBundle 'ap/vim-buftabline'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'edkolev/tmuxline.vim'
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'rstacruz/vim-fastunite'
-NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'Shougo/neoyank.vim'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'ervandew/supertab'
