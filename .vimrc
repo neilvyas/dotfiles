@@ -48,6 +48,9 @@ NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'Raimondi/delimitMate'
 
+" Prose.
+NeoBundle 'reedes/vim-pencil'
+
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
@@ -153,6 +156,14 @@ nnoremap <C-H> <C-W><C-H>
 " for closing the scratch window automatically, e.g. with python
 " documentation.
 autocmd CompleteDone * pclose
+
+" }}}
+" Prose. {{{
+
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd call pencil#init()
+augroup END
 
 " }}}
 " Leader commands. {{{
