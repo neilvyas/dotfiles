@@ -18,6 +18,7 @@ NeoBundle 'noahfrederick/vim-noctu' " uses terminal colorscheme, so only 16 colo
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'ap/vim-buftabline'
+NeoBundle 'mhinz/vim-startify'
 
 " Infrastructural stuff.
 NeoBundle 'Shougo/vimproc.vim', {
@@ -198,6 +199,27 @@ au Filetype plaintex,tex,latex setlocal tabstop=2 softtabstop=2 shiftwidth=2 tex
 
 " }}}
 " PLUGIN CONFIGS. {{{
+
+" Startify.
+" NOTE: You can replace this using Unite.
+autocmd User Startified setlocal colorcolumn=0 cul
+
+function! s:filter_header(lines) abort
+    let longest_line   = max(map(copy(a:lines), 'len(v:val)'))
+    let centered_lines = map(copy(a:lines),
+        \ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
+    return centered_lines
+endfunction
+" Have a nice 'vim' logo on startup :)
+let g:startify_custom_header = s:filter_header([
+        \ '                           ',
+        \ '         __                ',
+        \ ' __  __ /\_\    ___ ___    ',
+        \ '/\ \/\ \\/\ \ /'' __` __`\ ',
+        \ '\ \ \_/ |\ \ \/\ \/\ \/\ \ ',
+        \ ' \ \___/  \ \_\ \_\ \_\ \_\',
+        \ '  \/__/    \/_/\/_/\/_/\/_/',
+        \ ])
 
 " RainbowParentheses
 au VimEnter * RainbowParenthesesToggle
