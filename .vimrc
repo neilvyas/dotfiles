@@ -170,6 +170,8 @@ augroup END
 " Leader commands. {{{
 
 let mapleader=","
+" Fixing character search commands.
+noremap \ ,
 
 " <Leader>1: Toggle between paste mode
 nnoremap <silent> <Leader>1 :set paste!<cr>
