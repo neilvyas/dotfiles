@@ -1,4 +1,7 @@
 source ~/.zplug/zplug
+
+zplugs=() #reset zplugs.
+
 zplug "robbyrussell/oh-my-zsh", use:"lib/*.zsh", nice:8
 
 zplug "zsh-users/zsh-history-substring-search"
