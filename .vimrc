@@ -53,6 +53,10 @@ NeoBundle 'Raimondi/delimitMate'
 " Prose.
 NeoBundle 'reedes/vim-pencil'
 
+" YELPY STUFF
+NeoBundle 'wting/pair_files.vim'
+NeoBundle 'wting/gitsessions.vim'
+
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
@@ -277,5 +281,17 @@ let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 let g:UltiSnipsExpandTrigger           = '<tab>'
 let g:UltiSnipsJumpForwardTrigger      = '<CR>'
 let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
+
+" YELPY STUFF
+" pair files
+commandalias pfe PairFileEdit
+commandalias pfte PairFileTabEdit
+commandalias pfse PairFileSplitEdit
+commandalias pfve PairFileVSplitEdit
+
+" gitsessions.
+nnoremap <leader>gss :GitSessionSave<CR>
+nnoremap <leader>gsl :GitSessionLoad<CR>
+nnoremap <leader>gsd :GitSessionDelete<CR>
 
 " }}}
