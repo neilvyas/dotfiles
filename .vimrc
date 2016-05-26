@@ -284,10 +284,10 @@ let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 
 " YELPY STUFF
 " pair files
-commandalias pfe PairFileEdit
-commandalias pfte PairFileTabEdit
-commandalias pfse PairFileSplitEdit
-commandalias pfve PairFileVSplitEdit
+ca pfe PairFileEdit
+ca pfte PairFileTabEdit
+ca pfse PairFileSplitEdit
+ca pfve PairFileVSplitEdit
 
 " gitsessions.
 nnoremap <leader>gss :GitSessionSave<CR>
