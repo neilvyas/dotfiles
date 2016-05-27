@@ -221,6 +221,9 @@ let g:startify_custom_header = s:filter_header([
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 
+" DelimitMate
+let g:delimitMate_expand_cr = 1
+
 " python stuff.
 let g:pymode_rope = 0
 " Documentation
