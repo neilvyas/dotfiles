@@ -50,9 +50,6 @@ NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'Raimondi/delimitMate'
 
-" Prose.
-NeoBundle 'reedes/vim-pencil'
-
 " YELPY STUFF
 NeoBundle 'wting/pair_files.vim'
 NeoBundle 'wting/gitsessions.vim'
@@ -162,14 +159,6 @@ nnoremap <C-H> <C-W><C-H>
 " for closing the scratch window automatically, e.g. with python
 " documentation.
 autocmd CompleteDone * pclose
-
-" }}}
-" Prose. {{{
-
-augroup pencil
-  autocmd!
-  autocmd FileType markdown,mkd call pencil#init()
-augroup END
 
 " }}}
 " Leader commands. {{{
