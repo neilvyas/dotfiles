@@ -17,7 +17,9 @@ NeoBundle 'noahfrederick/vim-noctu' " uses terminal colorscheme, so only 16 colo
 " NeoBundle 'morhetz/gruvbox'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'edkolev/tmuxline.vim'
-NeoBundle 'ap/vim-buftabline'
+NeoBundle 'zefei/vim-wintabs'
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'xolox/vim-session'
 NeoBundle 'mhinz/vim-startify'
 
 " Infrastructural stuff.
@@ -33,6 +35,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'rstacruz/vim-fastunite'
 NeoBundle 'Shougo/neoyank.vim' " adds yank history as a source.
+NeoBundle 'Shougo/tabpagebuffer.vim'
 NeoBundle 'Konfekt/FastFold'
 NeoBundle 'ervandew/supertab'
 
@@ -50,9 +53,6 @@ NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'Raimondi/delimitMate'
 
-" YELPY STUFF
-NeoBundle 'wting/pair_files.vim'
-NeoBundle 'wting/gitsessions.vim'
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
@@ -91,6 +91,7 @@ set virtualedit=onemore
 set nobackup
 set nowritebackup
 set noswapfile
+let g:session_autosave = 'no'
 
 " Lower the delay of mode switching.
 set timeout timeoutlen=200 ttimeoutlen=1
@@ -113,6 +114,10 @@ highlight CursorLine ctermbg=233 " Grey7
 
 " Setting mark column color.
 highlight SignColumn ctermbg=0
+
+" Setting WinTabs UI settings
+let g:wintabs_ui_active_left = '['
+let g:wintabs_ui_active_right = ']'
 
 set incsearch " instant search.
 set hlsearch  " highlight results
@@ -253,7 +258,7 @@ let g:tmuxline_powerline_separators = 0
 nnoremap <C-p> :Unite file_rec/async -start-insert -no-split<CR>
 nnoremap <space>/ :Unite grep/git:. -no-split<CR>
 nnoremap <C-y> :Unite history/yank<CR> " masks scroll up motion.
-nnoremap <C-e> :Unite -quick-match buffer -no-split<CR>
+nnoremap <C-e> :Unite buffer_tab -start-insert -no-split<CR>
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
 function! s:unite_settings()
@@ -280,10 +285,5 @@ ca pfe PairFileEdit
 ca pfte PairFileTabEdit
 ca pfse PairFileSplitEdit
 ca pfve PairFileVSplitEdit
-
-" gitsessions.
-nnoremap <leader>gss :GitSessionSave<CR>
-nnoremap <leader>gsl :GitSessionLoad<CR>
-nnoremap <leader>gsd :GitSessionDelete<CR>
 
 " }}}
