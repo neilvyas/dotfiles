@@ -279,11 +279,4 @@ let g:UltiSnipsExpandTrigger           = '<tab>'
 let g:UltiSnipsJumpForwardTrigger      = '<CR>'
 let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 
-" YELPY STUFF
-" pair files
-ca pfe PairFileEdit
-ca pfte PairFileTabEdit
-ca pfse PairFileSplitEdit
-ca pfve PairFileVSplitEdit
-
 " }}}
