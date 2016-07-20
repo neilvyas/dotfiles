@@ -123,7 +123,6 @@ let g:wintabs_ui_active_right = ']'
 set incsearch " instant search.
 set hlsearch  " highlight results
 set smartcase " not caps-sensitive unless there's a capital letter.
-nnoremap <leader><space> :nohlsearch<CR>
 highlight Search cterm=bold,underline ctermfg=yellow ctermbg=NONE
 
 highlight Comment cterm=NONE " italic for iTerm.
@@ -174,12 +173,17 @@ let mapleader=","
 noremap \ ,
 
 " <Leader>1: Toggle between paste mode
-nnoremap <silent> <Leader>1 :set paste!<cr>
+nnoremap <silent> <leader>1 :set paste!<cr>
+
+" <Leader>2: Turn off search result highlighting
+nnoremap <silent> <leader>2 :nohlsearch<CR>
 
 " <Leader>q: Quit all, very useful in vimdiff
-nnoremap <Leader>q :qa<cr>
+nnoremap <leader>q :qa<cr>
 
 " <Leader>g: Fugitive shortcuts
+" TODO - if I start using fugitive. I'm pretty happy with git / tig being
+" separate from vim. The separation makes me think more.
 
 " <Leader>m: Make in background with quickfix window.
 nnoremap <leader>m :silent make\|redraw!\|cc<CR>
