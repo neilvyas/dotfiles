@@ -255,7 +255,7 @@ let g:tmuxline_powerline_separators = 0
 
 
 " Unite bindings.
-nnoremap <C-p> :Unite file_rec/async -start-insert -no-split<CR>
+nnoremap <C-p> :Unite file_rec/git -start-insert -no-split<CR>
 nnoremap <space>/ :Unite grep/git:. -no-split<CR>
 nnoremap <C-y> :Unite history/yank<CR> " masks scroll up motion.
 nnoremap <C-e> :Unite buffer_tab -start-insert -no-split<CR>
