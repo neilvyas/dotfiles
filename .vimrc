@@ -36,6 +36,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'rstacruz/vim-fastunite'
 NeoBundle 'Shougo/neoyank.vim' " adds yank history as a source.
 NeoBundle 'Shougo/tabpagebuffer.vim'
+NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'Konfekt/FastFold'
 NeoBundle 'ervandew/supertab'
 
