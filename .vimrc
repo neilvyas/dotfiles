@@ -17,7 +17,7 @@ NeoBundle 'noahfrederick/vim-noctu' " uses terminal colorscheme, so only 16 colo
 " NeoBundle 'morhetz/gruvbox'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'edkolev/tmuxline.vim'
-NeoBundle 'zefei/vim-wintabs'
+NeoBundle 'gcmt/taboo.vim'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-session'
 NeoBundle 'mhinz/vim-startify'
@@ -94,7 +94,10 @@ set virtualedit=onemore
 set nobackup
 set nowritebackup
 set noswapfile
-let g:session_autosave = 'no'
+
+" Session options.
+let g:session_autosave = 'no' " actually for vim-session
+set sessionoptions+=tabpages,globals " save tab names for Taboo
 
 " Lower the delay of mode switching.
 set timeout timeoutlen=200 ttimeoutlen=1
