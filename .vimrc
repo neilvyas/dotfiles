@@ -270,8 +270,8 @@ let g:tmuxline_powerline_separators = 0
 " Unite bindings.
 nnoremap <C-p> :Unite file_rec/git -start-insert -no-split<CR>
 nnoremap <space>/ :Unite grep/git:. -no-split<CR>
-nnoremap <C-y> :Unite history/yank<CR> " masks scroll up motion.
-nnoremap <C-e> :Unite buffer_tab -start-insert -no-split<CR>
+nnoremap <C-y> :Unite history/yank -start-insert<CR> " masks scroll up motion.
+nnoremap <C-e> :Unite tab -start-insert -no-split<CR> " Tab/Buf tree with fuzzy finding on insert.
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
 function! s:unite_settings()
@@ -280,6 +280,8 @@ function! s:unite_settings()
   " Enable navigation with control-j and control-k in insert mode
   imap <buffer> <C-j>   <Plug>(unite_select_next_line)
   imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+  " Create a 'back' button, more or less.
+  imap <buffer> <C-h>   <Plug>(unite_exit)
 endfunction
 
 " supertab direction fixes
