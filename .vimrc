@@ -175,13 +175,16 @@ let mapleader=","
 noremap \ ,
 
 " <Leader>1: Toggle between paste mode
-nnoremap <silent> <leader>1 :set paste!<cr>
+nnoremap <silent> <leader>1 :set paste!<CR>
 
 " <Leader>2: Turn off search result highlighting
 nnoremap <silent> <leader>2 :nohlsearch<CR>
 
+" <Leader>3: Diff against file on disk.
+nnoremap <leader>3 :w !diff % -<CR>
+
 " <Leader>q: Quit all, very useful in vimdiff
-nnoremap <leader>q :qa<cr>
+nnoremap <leader>q :qa<CR>
 
 " <Leader>g: Fugitive shortcuts
 " TODO - if I start using fugitive. I'm pretty happy with git / tig being
