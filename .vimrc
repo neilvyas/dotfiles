@@ -44,6 +44,8 @@ NeoBundle 'ervandew/supertab'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-commentary'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'bps/vim-textobj-python'
 
 " IDE type stuff.
 NeoBundle 'SirVer/ultisnips'
