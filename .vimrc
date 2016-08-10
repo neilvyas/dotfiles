@@ -270,8 +270,10 @@ let g:tmuxline_powerline_separators = 0
 " Unite bindings.
 nnoremap <C-p> :Unite file_rec/git -start-insert -no-split<CR>
 nnoremap <space>/ :Unite grep/git:. -no-split<CR>
-nnoremap <C-y> :Unite history/yank -start-insert<CR> " masks scroll up motion.
-nnoremap <C-e> :Unite tab -start-insert -no-split<CR> " Tab/Buf tree with fuzzy finding on insert.
+" masks scroll up motion.
+nnoremap <C-y> :Unite history/yank -start-insert<CR>
+" Tab/Buf tree with fuzzy finding on insert.
+nnoremap <C-e> :Unite tab -start-insert<CR>
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
 function! s:unite_settings()
