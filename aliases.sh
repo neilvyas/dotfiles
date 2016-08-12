@@ -1,6 +1,3 @@
-#vim
-alias vim="~/bin/vim"
-
 #python
 alias py="python" 
 #incredible interpreter.
