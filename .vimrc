@@ -17,7 +17,6 @@ NeoBundle 'noahfrederick/vim-noctu' " uses terminal colorscheme, so only 16 colo
 " NeoBundle 'morhetz/gruvbox'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'edkolev/tmuxline.vim'
-NeoBundle 'gcmt/taboo.vim'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-session'
 NeoBundle 'mhinz/vim-startify'
@@ -39,6 +38,8 @@ NeoBundle 'Shougo/tabpagebuffer.vim'
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'Konfekt/FastFold'
 NeoBundle 'ervandew/supertab'
+" NeoBundle 'zefei/vim-wintabs'
+NeoBundle 'gcmt/taboo.vim'
 
 " Better vim navigation.
 NeoBundle 'kshenoy/vim-signature'
@@ -51,10 +52,12 @@ NeoBundle 'bps/vim-textobj-python'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'klen/python-mode'
 NeoBundle 'davidhalter/jedi-vim'
-" I don't want to deal with the silly lua setup on the dev boxes.
-" NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'kien/rainbow_parentheses.vim'
+NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'lambdatoast/elm.vim'
+NeoBundle 'travitch/hasksyn'
 
 
 " If there are uninstalled bundles found on startup,
@@ -138,11 +141,6 @@ set foldnestmax=10
 nnoremap <space> za " space un/folds.
 set foldmethod=indent
 
-" cross-session paste via writing to tmp file.
-" TODO: check out easy paste to work around this
-vmap <leader>y :w! /tmp/vitmp<CR>                                                                   
-nmap <leader>p :r! cat /tmp/vitmp<CR>
-
 "tabline
 " TODO: may be able to obviate this with unite 
 set hidden
@@ -186,6 +184,9 @@ nnoremap <silent> <leader>2 :nohlsearch<CR>
 " <Leader>3: Diff against file on disk.
 nnoremap <leader>3 :w !diff % -<CR>
 
+" <Leader>4: Re-render syntax coloring, in case of bugs.
+nnoremap <leader>4 :syntax sync fromstart<CR>
+
 " <Leader>q: Quit all, very useful in vimdiff
 nnoremap <leader>q :qa<CR>
 
@@ -196,6 +197,9 @@ nnoremap <leader>q :qa<CR>
 " <Leader>m: Make in background with quickfix window.
 nnoremap <leader>m :silent make\|redraw!\|cc<CR>
 
+" <Leader>e: open netrw window.
+nnoremap <leader>e :Explore<CR>
+
 " }}}
 " FileType stuff. {{{
 set tabstop=2
@@ -203,6 +207,7 @@ set softtabstop=2
 set expandtab " tabs are spaces.
 set shiftwidth=2 " for visual indentation.
 
+" TODO move these to ftplugin/after files.
 au Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=100
 
 au Filetype javascript,html,css setlocal tabstop=2 softtabstop=2 shiftwidth=2
@@ -226,13 +231,13 @@ function! s:filter_header(lines) abort
 endfunction
 " Have a nice 'vim' logo on startup :)
 let g:startify_custom_header = s:filter_header([
-        \ '                           ',
-        \ '         __                ',
-        \ ' __  __ /\_\    ___ ___    ',
-        \ '/\ \/\ \\/\ \ /'' __` __`\ ',
-        \ '\ \ \_/ |\ \ \/\ \/\ \/\ \ ',
-        \ ' \ \___/  \ \_\ \_\ \_\ \_\',
-        \ '  \/__/    \/_/\/_/\/_/\/_/',
+        \ "               o8o                    ",
+        \ "               `\"'                    ",
+        \ "  oooo    ooo oooo  ooo. .oo.  .oo.   ",
+        \ "   `88.  .8'  `888  `888P\"Y88bP\"Y88b  ",
+        \ "    `88..8'    888   888   888   888  ",
+        \ "     `888'     888   888   888   888  ",
+        \ "      `8'     o888o o888o o888o o888o ",
         \ ])
 
 " RainbowParentheses
@@ -266,14 +271,32 @@ let g:lightline = {
 set noshowmode
 let g:tmuxline_powerline_separators = 0
 
+" Make Taboo tabs play nice with Unite tab explorer.
+" TODO I should re-write the tabline functionality so I can just use Unite for this.
+function! s:RenameTab(tabname) abort
+  execute ':TabooRename ' . a:tabname 
+  let t:title=t:taboo_tab_name
+endfunction
+command! -nargs=1 RenameTab call s:RenameTab(<q-args>)
+" Tab/Buf tree with fuzzy finding on insert.
+nnoremap <C-e> :Unite tab -start-insert<CR>
+
+" <Leader>j: Rename tabs.
+nnoremap <leader>j :RenameTab<Space>
+
+let g:taboo_tab_format=' %m%f '
+let g:taboo_renamed_tab_format=' %m%l '
+
+hi TabLineFill ctermfg=0 ctermbg=0
+hi TabLineSel cterm=bold ctermfg=15 ctermbg=3
+hi Tabline ctermfg=15 ctermbg=8
 
 " Unite bindings.
-nnoremap <C-p> :Unite file_rec/git -start-insert -no-split<CR>
+" If this is slow (e.g. in a huge directory) switch back to file_rec/git.
+nnoremap <C-p> :Unite file_rec/async -start-insert -no-split<CR>
 nnoremap <space>/ :Unite grep/git:. -no-split<CR>
 " masks scroll up motion.
 nnoremap <C-y> :Unite history/yank -start-insert<CR>
-" Tab/Buf tree with fuzzy finding on insert.
-nnoremap <C-e> :Unite tab -start-insert<CR>
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
 function! s:unite_settings()
