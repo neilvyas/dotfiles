@@ -295,6 +295,7 @@ hi TabLineSel cterm=bold ctermfg=15 ctermbg=3
 hi Tabline ctermfg=15 ctermbg=8
 
 " Unite bindings.
+"
 " Toggle vcs-aware Unite sources. Lots faster but depend on git.
 let g:useVcsAwareSearch = 1
 function! g:VcsAwareSearch()
@@ -310,7 +311,7 @@ function! g:VcsAwareSearch()
     let g:useVcsAwareSearch = 1
   endif
 endfunction
-call g:VcsAwareSearch()
+au VimEnter * call g:VcsAwareSearch()
 
 " masks scroll up motion.
 nnoremap <C-y> :Unite history/yank -start-insert<CR>
