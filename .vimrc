@@ -187,6 +187,9 @@ nnoremap <leader>3 :w !diff % -<CR>
 " <Leader>4: Re-render syntax coloring, in case of bugs.
 nnoremap <leader>4 :syntax sync fromstart<CR>
 
+" <Leader>5: Toggle VCS-aware functionality.
+nnoremap <leader>5 :call VcsAwareSearch()<CR>
+
 " <Leader>q: Quit all, very useful in vimdiff
 nnoremap <leader>q :qa<CR>
 
@@ -292,9 +295,23 @@ hi TabLineSel cterm=bold ctermfg=15 ctermbg=3
 hi Tabline ctermfg=15 ctermbg=8
 
 " Unite bindings.
-" If this is slow (e.g. in a huge directory) switch back to file_rec/git.
-nnoremap <C-p> :Unite file_rec/async -start-insert -no-split<CR>
-nnoremap <space>/ :Unite grep/git:. -no-split<CR>
+" Toggle vcs-aware Unite sources. Lots faster but depend on git.
+let g:useVcsAwareSearch = 1
+function! g:VcsAwareSearch()
+  if g:useVcsAwareSearch
+    echo "Now VCS-aware"
+    nnoremap <C-p> :Unite file_rec/git -start-insert -no-split<CR>
+    nnoremap <space>/ :Unite grep/git:. -no-split<CR>
+    let g:useVcsAwareSearch = 0
+  else
+    echo "Switching off VCS-aware"
+    nnoremap <C-p> :Unite file_rec/async -start-insert -no-split<CR>
+    nnoremap <space>/ :Unite grep:. -no-split<CR>
+    let g:useVcsAwareSearch = 1
+  endif
+endfunction
+call g:VcsAwareSearch()
+
 " masks scroll up motion.
 nnoremap <C-y> :Unite history/yank -start-insert<CR>
 " Custom mappings for the unite buffer
