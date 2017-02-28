@@ -153,6 +153,8 @@ nnoremap k gk
 
 "scrollwheel works as expected
 set mouse=a
+" For tmux.
+set ttymouse=xterm2
 
 "default split opening locations.
 set splitbelow
@@ -189,6 +191,12 @@ nnoremap <leader>4 :syntax sync fromstart<CR>
 
 " <Leader>5: Toggle VCS-aware functionality.
 nnoremap <leader>5 :call VcsAwareSearch()<CR>
+
+" <Leader>6: Toggle Pylint.
+nnoremap <leader>6 :PymodeLintToggle<CR>
+
+" <Leader>j: Rename tabs.
+nnoremap <leader>j :RenameTab<Space>
 
 " <Leader>q: Quit all, very useful in vimdiff
 nnoremap <leader>q :qa<CR>
@@ -284,8 +292,6 @@ command! -nargs=1 RenameTab call s:RenameTab(<q-args>)
 " Tab/Buf tree with fuzzy finding on insert.
 nnoremap <C-e> :Unite tab -start-insert<CR>
 
-" <Leader>j: Rename tabs.
-nnoremap <leader>j :RenameTab<Space>
 
 let g:taboo_tab_format=' %m%f '
 let g:taboo_renamed_tab_format=' %m%l '
