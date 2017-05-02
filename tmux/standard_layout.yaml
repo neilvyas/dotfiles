@@ -1,0 +1,5 @@
+name:
+  MAIN
+windows:
+  - name: scratch
+    root: ~/code
