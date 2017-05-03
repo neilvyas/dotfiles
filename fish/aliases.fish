@@ -8,6 +8,9 @@ alias nvn "nvim -u NONE"
 # TODO seems there's a race issue with set-default-shell, so this variable is unset, and we depend on it.
 alias tmux "env DOTFILES_HOME=$DOTFILES_HOME tmux"
 alias st "tree -L 4"
+
+alias ev "nvim $DOTFILES_HOME/nvim/"
+alias ea "nvim $DOTFILES_HOME/fish/aliases.fish"
 # }}}
 
 # Python {{{

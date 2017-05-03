@@ -2,7 +2,6 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 
 
-inoremap <expr> <C-Space> delimitMate#JumpAny()
 let g:delimitMate_smart_matchpairs = 1
 let g:delimitMate_expand_space = 1
 let g:delimitMate_expand_cr = 1
