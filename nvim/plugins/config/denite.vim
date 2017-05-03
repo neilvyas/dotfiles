@@ -52,12 +52,18 @@ call denite#custom#map(
 call denite#custom#map(
             \ 'insert',
             \ '<C-e>',
-            \ '<denite:leave_mode>',
+            \ '<denite:quit>',
             \ 'noremap'
             \)
 call denite#custom#map(
             \ 'insert',
             \ '<Esc>',
             \ '<denite:enter_mode:normal>',
+            \ 'noremap'
+            \)
+call denite#custom#map(
+            \ 'normal',
+            \ '<C-e>',
+            \ '<denite:quit>',
             \ 'noremap'
             \)
