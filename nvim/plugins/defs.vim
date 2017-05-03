@@ -22,6 +22,7 @@ if dein#load_state(s:bundle_dir)
     call dein#add('Shougo/neosnippet')
 
     call dein#add('Shougo/denite.nvim')
+    call dein#add('tpope/vim-vinegar')
 
     " Language plugins.
     call dein#add('LnL7/vim-nix')

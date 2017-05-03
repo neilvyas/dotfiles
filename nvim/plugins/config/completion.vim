@@ -19,7 +19,9 @@ let g:deoplete#auto_complete_delay = 50
 imap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 imap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
-" Use enter to make a selection and close the popup.
+" Use space to make a selection and close the popup.
+" I'd love to use <CR> but it messes with delimitMate's auto-indentation for
+" some reason, and my terminal doesn't differentiate <CR>, <C-CR>, <S-CR>.
 imap <expr> <C-SPACE> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"
 \ : pumvisible() ? deoplete#mappings#close_popup() : delimitMate#JumpAny()

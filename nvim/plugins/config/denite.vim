@@ -30,7 +30,8 @@ nnoremap <silent> <C-s> :<C-u>Denite
 \ <CR>
 
 " Make these sources interactive, i.e. start at a Denite prompt.
-call denite#custom#source('grep', 'args', ['', '', '!'])
+" This is awesome but often far too slow.
+" call denite#custom#source('grep', 'args', ['', '', '!'])
 call denite#custom#source('grep/git', 'args', ['', '', '!'])
 
 
