@@ -20,9 +20,9 @@ imap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 imap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " Use enter to make a selection and close the popup.
-imap <expr> <CR> neosnippet#expandable_or_jumpable() ?
+imap <expr> <space> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"
-\ : pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
+\ : pumvisible() ? deoplete#mappings#close_popup() : "\<space>"
 
 " Fix for jumping over placeholders for neosnippet
 smap <expr> <TAB> neosnippet#jumpable() ?
