@@ -30,3 +30,9 @@ imap <expr> <C-SPACE> neosnippet#expandable_or_jumpable() ?
 smap <expr> <TAB> neosnippet#jumpable() ?
 \ "\<Plug>(neosnippet_jump)"
 \: "\<TAB>"
+
+
+" setting up specific sources
+let g:deoplete#neco_look#min_pattern_length = 4
+let g:deoplete#neco_look#filetypes = ["markdown", "txt", "gitcommit"]
+let g:deoplete#neco_look#words_source = "~/dotfiles/data/sorted_english_words.txt"

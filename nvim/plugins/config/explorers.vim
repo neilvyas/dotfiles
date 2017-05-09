@@ -1,3 +1,14 @@
+" Exploring hierarchical things.
+augroup netrw_change_mappings
+    au!
+    au filetype netrw call Change_netrw_mappings()
+augroup END
+function! Change_netrw_mappings()
+    nmap <buffer> <Space> mf
+endfunction
+
+
+" Exploring searches. I use denite for this.
 call denite#custom#option('default', 'prompt', '->')
 
 " Never search these paths.
@@ -29,41 +40,16 @@ nnoremap <silent> <C-s> :<C-u>Denite
 \ `finddir('.git', ';') != '' ? 'grep/git' : 'grep'`
 \ <CR>
 
-" Make these sources interactive, i.e. start at a Denite prompt.
-" This is awesome but often far too slow.
-" call denite#custom#source('grep', 'args', ['', '', '!'])
+" Only make the grep/git source interactive, as it's fast enough to not choke.
+" TODO investigate making this toggleable or adding an initial delay?
+" TODO figure out how this interacts with <C-R><C-W> insertion?
 call denite#custom#source('grep/git', 'args', ['', '', '!'])
 
 
 " Adjust mappings for the prompt.
-call denite#custom#map(
-            \ 'insert',
-            \ '<C-j>',
-            \ '<denite:move_to_next_line>',
-            \ 'noremap'
-            \)
-call denite#custom#map(
-            \ 'insert',
-            \ '<C-k>',
-            \ '<denite:move_to_previous_line>',
-            \ 'noremap'
-            \)
+call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
 
-call denite#custom#map(
-            \ 'insert',
-            \ '<C-e>',
-            \ '<denite:quit>',
-            \ 'noremap'
-            \)
-call denite#custom#map(
-            \ 'insert',
-            \ '<Esc>',
-            \ '<denite:enter_mode:normal>',
-            \ 'noremap'
-            \)
-call denite#custom#map(
-            \ 'normal',
-            \ '<C-e>',
-            \ '<denite:quit>',
-            \ 'noremap'
-            \)
+call denite#custom#map('insert', '<Esc>', '<denite:enter_mode:normal>', 'noremap')
+call denite#custom#map('insert', '<C-e>', '<denite:quit>', 'noremap')
+call denite#custom#map('normal', '<C-e>', '<denite:quit>', 'noremap')
