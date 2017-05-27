@@ -1,10 +1,7 @@
 #!/bin/bash
 
-source $stdenv/setup
-
-echo $src
-echo $dotfiles_home
-echo $home
+# TODO: think about wiring this up with `nix-home` instead of this installer
+# (I don't think it's really any different)
 
 #Wire up tmux properly.
 ln -sf $dotfiles_home/tmux/base.tmux.conf $home/.tmux.conf
