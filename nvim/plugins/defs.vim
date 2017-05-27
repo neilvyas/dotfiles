@@ -25,11 +25,10 @@ if dein#load_state(s:bundle_dir)
     call dein#add('Shougo/deoplete.nvim')
     call dein#add('Shougo/neosnippet')
     call dein#add('Shougo/neco-syntax')
-    " call dein#add('ujihisa/neco-look')
-    call dein#add('/Users/neilvyas/code/neco-look')
 
     " Explorers.
     call dein#add('Shougo/denite.nvim')
+    call dein#add('Shougo/neoyank.vim')
     call dein#add('tpope/vim-vinegar')
 
     " Production Software utilities.

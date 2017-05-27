@@ -33,6 +33,7 @@ smap <expr> <TAB> neosnippet#jumpable() ?
 
 
 " setting up specific sources
-let g:deoplete#neco_look#min_pattern_length = 4
-let g:deoplete#neco_look#filetypes = ["markdown", "txt", "gitcommit"]
-let g:deoplete#neco_look#words_source = "~/dotfiles/data/sorted_english_words.txt"
+call deoplete#custom#set(
+            \ "dictionary",
+            \ "dict__dictionary",
+            \ "~/dotfiles/data/sorted_english_words.txt")
