@@ -12,6 +12,8 @@ alias st "tree -L 4"
 alias ev "nvim $DOTFILES_HOME/nvim/"
 alias ea "nvim $DOTFILES_HOME/fish/aliases.fish"
 alias sc "source $HOME/.config/fish/config.fish"
+
+alias sl "pmset sleepnow"
 # }}}
 
 # Python {{{
