@@ -1,14 +1,19 @@
 #!/bin/bash
 
+export DOTFILES_HOME="/Users/neilvyas/dotfiles"
+
 # TODO: think about wiring this up with `nix-home` instead of this installer
 # (I don't think it's really any different)
 
 #Wire up tmux properly.
-ln -sf $dotfiles_home/tmux/base.tmux.conf $home/.tmux.conf
+ln -sf $DOTFILES_HOME/tmux/base.tmux.conf $HOME/.tmux.conf
 
 # Don't overwrite stuff put in place by fisherman.
-ln -sf $dotfiles_home/fish/functions/* $home/.config/fish/functions
+ln -sf $DOTFILES_HOME/fish/config.fish $HOME/.config/fish/config.fish
+ln -sf $DOTFILES_HOME/fish/functions/* $HOME/.config/fish/functions
 
-ln -sf $dotfiles_home/nvim $home/.config
+fisher bass
 
-ln -sf $dotfiles_home/haskell/conf.ghci $home/.ghci
+ln -sf $DOTFILES_HOME/nvim $HOME/.config
+
+ln -sf $DOTFILES_HOME/haskell/conf.ghci $HOME/.ghci
