@@ -9,8 +9,8 @@ alias nvn "nvim -u NONE"
 alias tmux "env DOTFILES_HOME=$DOTFILES_HOME tmux"
 alias st "tree -L 4"
 
-alias ev "nvim $DOTFILES_HOME/nvim/"
-alias ea "nvim $DOTFILES_HOME/fish/aliases.fish"
+alias ev "nvim $DOTFILES_HOME/nvim/ -c 'cd $DOTFILES_HOME'"
+alias ea "nvim $DOTFILES_HOME/fish/aliases.fish -c 'cd $DOTFILES_HOME'"
 alias sc "source $HOME/.config/fish/config.fish"
 
 alias sl "pmset sleepnow"
