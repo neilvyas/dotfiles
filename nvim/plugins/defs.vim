@@ -14,6 +14,10 @@ if dein#load_state(s:bundle_dir)
     call dein#add('itchyny/lightline.vim')
     call dein#add('kshenoy/vim-signature')
 
+    call dein#add('junegunn/goyo.vim')
+    " Terminal.app is not 256 colors :(
+    " call dein#add('junegunn/limelight.vim')
+
     " Paredification.
     " The building of vim into an editor that understands more than text.
     call dein#add('kien/rainbow_parentheses.vim')
@@ -25,6 +29,8 @@ if dein#load_state(s:bundle_dir)
     call dein#add('Shougo/deoplete.nvim')
     call dein#add('Shougo/neosnippet')
     call dein#add('Shougo/neco-syntax')
+
+    call dein#add('zchee/deoplete-jedi')
 
     " Explorers.
     call dein#add('Shougo/denite.nvim')

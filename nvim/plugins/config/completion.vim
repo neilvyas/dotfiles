@@ -1,3 +1,6 @@
+set completeopt=menu  " No scratch windows for completion, please.
+
+
 let g:deoplete#enable_at_startup = 1
 
 augroup initialize_completion
@@ -9,7 +12,6 @@ augroup END
 let g:neosnippet#disable_runtime_snippets = {'_' : 1} 
 let g:neosnippet#snippets_directory = [
             \ '~/.config/nvim/snippets']
-call deoplete#custom#set('neosnippet', 'rank', 1000)
 
 
 " Press tab to bring up autocompletion.
@@ -37,3 +39,7 @@ call deoplete#custom#set(
             \ "dictionary",
             \ "dict__dictionary",
             \ "~/dotfiles/data/sorted_english_words.txt")
+
+
+call deoplete#custom#set('neosnippet', 'rank', 1000)
+call deoplete#custom#set('jedi', 'rank', 999)
