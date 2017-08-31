@@ -13,24 +13,29 @@ if dein#load_state(s:bundle_dir)
     call dein#add('mhinz/vim-startify')
     call dein#add('itchyny/lightline.vim')
     call dein#add('kshenoy/vim-signature')
-
-    call dein#add('junegunn/goyo.vim')
-    " Terminal.app is not 256 colors :(
-    " call dein#add('junegunn/limelight.vim')
+    call dein#add('ntpeters/vim-better-whitespace')
+    call dein#add('Yggdroot/indentLine')
+    call dein#add('junegunn/limelight.vim')
 
     " Paredification.
     " The building of vim into an editor that understands more than text.
+
+    " Better text objects.
     call dein#add('kien/rainbow_parentheses.vim')
     call dein#add('Raimondi/delimitMate')
     call dein#add('tpope/vim-surround')
     call dein#add('tpope/vim-commentary')
 
+    call dein#add('neomake/neomake')
+
+    " These are like additional modes for vim.
+    call dein#add('jceb/vim-orgmode')
+    call dein#add('junegunn/goyo.vim')
+
     " Completion.
     call dein#add('Shougo/deoplete.nvim')
     call dein#add('Shougo/neosnippet')
     call dein#add('Shougo/neco-syntax')
-
-    call dein#add('zchee/deoplete-jedi')
 
     " Explorers.
     call dein#add('Shougo/denite.nvim')
@@ -39,6 +44,10 @@ if dein#load_state(s:bundle_dir)
 
     " Production Software utilities.
     call dein#add('tpope/vim-fugitive')
+    call dein#add('tpope/vim-rhubarb')
+
+    " Language Server Protocol server and clients
+    call dein#add('autozimu/LanguageClient-neovim')
 
     " Language plugins.
     call dein#add('LnL7/vim-nix')

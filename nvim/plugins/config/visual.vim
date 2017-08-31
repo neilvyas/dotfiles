@@ -1,7 +1,12 @@
 colorscheme solarized
 
 
-autocmd User Startified setlocal colorcolumn=0 cul
+augroup startify_settings
+    au!
+    autocmd User Startified setlocal colorcolumn=0 cul
+    " Unfortunately, Goyo still seems buggy af.
+    " autocmd User Startified Goyo
+augroup END
 
 function! s:filter_header(lines) abort
     let longest_line   = max(map(copy(a:lines), 'len(v:val)'))
@@ -48,3 +53,33 @@ let g:lightline = {
 
 
 let g:tmuxline_powerline_separators = 0
+
+
+let g:better_whitespace_filetypes_blacklist = [
+    \ 'startify',
+    \ 'diff',
+    \ 'gitcommit',
+    \ 'unite',
+    \ 'qf',
+    \ 'help'
+    \ ]
+
+
+let g:indentLine_enabled = 0
+
+
+function! s:goyo_enter()
+    set noshowmode
+    set noshowcmd
+    set scrolloff=999
+    set nu
+endfunction
+
+function! s:goyo_leave()
+    set showmode
+    set showcmd
+    set scrolloff=5
+endfunction
+
+autocmd! user goyoenter nested call <sid>goyo_enter()
+autocmd! user goyoleave nested call <sid>goyo_leave()
