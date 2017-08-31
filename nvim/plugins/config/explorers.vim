@@ -20,7 +20,6 @@ call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
 " Define shortcuts to certain sources.
 nnoremap <C-c> :Denite change<CR>
 nnoremap <C-b> :Denite buffer<CR>
-nnoremap <C-SPACE> :Denite documentSymbol<CR>  " from language-server-protocol
 
 " Use git features if possible.
 call denite#custom#alias('source', 'file_rec/git', 'file_rec')

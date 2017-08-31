@@ -1,15 +1,3 @@
-let g:LanguageClient_serverCommands = {
-    \ 'python': ['/Users/neilvyas/.pyenv/versions/3.4.4/envs/neovim3/bin/pyls'],
-    \ }
-
-" Automatically start language servers.
-let g:LanguageClient_autoStart = 1
-
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> <leader>r :call LanguageClient_textDocument_rename()<CR>
-
-
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 

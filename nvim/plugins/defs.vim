@@ -46,9 +46,6 @@ if dein#load_state(s:bundle_dir)
     call dein#add('tpope/vim-fugitive')
     call dein#add('tpope/vim-rhubarb')
 
-    " Language Server Protocol server and clients
-    call dein#add('autozimu/LanguageClient-neovim')
-
     " Language plugins.
     call dein#add('LnL7/vim-nix')
 
