@@ -1,3 +1,4 @@
 .netrwhist
 
 nvim/bundle/*
+fish/sensitive.fish
