@@ -17,7 +17,7 @@ alias sl "pmset sleepnow"
 # }}}
 
 # Python {{{
-alias py "python" 
+alias py "python"
 alias bp "bpython"
 
 function pyclean
@@ -27,6 +27,7 @@ end
 # }}}
 
 # Git {{{
+alias gb "git branch --list | percol | xargs git checkout"
 alias gbv "git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 alias gbvv "git branch -vv"
 alias gl "git log"
@@ -50,3 +51,5 @@ alias ni "nix-env -i"
 alias nb "nix-build"
 alias nsh "nix-shell"
 # }}}
+# TODO I don't even know.
+alias stack "~/.local/bin/stack"

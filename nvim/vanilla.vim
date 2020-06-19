@@ -4,7 +4,7 @@ endif
 
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
-  let g:python3_host_prog = '/Users/neilvyas/.pyenv/versions/neovim3/bin/python'
+  let g:python3_host_prog = '/Users/neilvyas/.pyenv/versions/neovim3.7/bin/python'
 endif
 
 filetype plugin indent on
@@ -65,7 +65,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-command WQ wq
-command Wq wq
-command W w
-command Q q
+command! WQ wq
+command! Wq wq
+command! W w
+command! Q q

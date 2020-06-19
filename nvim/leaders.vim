@@ -4,6 +4,9 @@ let maplocalleader=","
 " Fixing character search commands.
 noremap \ ,
 
+nnoremap <silent> <leader>1 :Autoformat<CR>
+xnoremap <silent> <leader>1 :Autoformat<CR>
+
 nnoremap <silent> <leader>2 :nohlsearch<CR>
 
 nnoremap <leader>3 :w !diff % -<CR>
@@ -13,6 +16,9 @@ nnoremap <leader>4 :IndentLinesToggle<CR>
 nnoremap <leader>q :qa<CR>
 
 nnoremap <leader>j :Goyo 120<CR>:set nu<CR>
+
+" Add current line to quickfix list.
+nnoremap <leader>k :caddexpr expand("%") . ":" . line(".") .  ":" . getline(".")<CR>
 
 nnoremap <leader>gb :Gblame<CR>
 

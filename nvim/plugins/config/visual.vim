@@ -1,5 +1,8 @@
 colorscheme solarized
-
+" Triage a bug with solarized.
+set signcolumn=yes
+hi clear SignColumn
+hi link SignColumn LineNr
 
 augroup startify_settings
     au!
@@ -37,7 +40,11 @@ let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ],
+      \              [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ] ]
       \ },
       \ 'component': {
       \   'readonly': '%{!(index(["help", "startify", "netrw"],&filetype)>=0) && &readonly ? "RO":""}',
@@ -49,6 +56,19 @@ let g:lightline = {
       \   'modified': '(!(index(["help", "startify", "netrw"],&filetype)>=0)&&(&modified||!&modifiable))',
       \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
       \ },
+      \ }
+
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+let g:lightline.component_type = {
+      \     'linter_checking': 'left',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'left',
       \ }
 
 
@@ -83,3 +103,6 @@ endfunction
 
 autocmd! user goyoenter nested call <sid>goyo_enter()
 autocmd! user goyoleave nested call <sid>goyo_leave()
+
+
+let g:SimpylFold_docstring_preview = 1

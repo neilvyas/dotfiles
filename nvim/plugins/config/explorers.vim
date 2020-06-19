@@ -25,25 +25,42 @@ nnoremap <C-b> :Denite buffer<CR>
 call denite#custom#alias('source', 'file_rec/git', 'file_rec')
 call denite#custom#var('file_rec/git', 'command',
 \ ['git', 'ls-files', '-co', '--exclude-standard'])
+
 nnoremap <silent> <C-p> :<C-u>Denite
 \ `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`
 \ -no-quit
 \ <CR>
 
-call denite#custom#alias('source', 'grep/git', 'grep')
-call denite#custom#var('grep/git', 'command', ['git', '--no-pager', 'grep'])
-call denite#custom#var('grep/git', 'recursive_opts', [])
-call denite#custom#var('grep/git', 'final_opts', [])
-call denite#custom#var('grep/git', 'separator', [])
-call denite#custom#var('grep/git', 'default_opts', ['-nH'])
-nnoremap <silent> <C-s> :<C-u>Denite
-\ `finddir('.git', ';') != '' ? 'grep/git' : 'grep'`
+if executable('rg')
+    call denite#custom#var('grep', 'command', ['rg'])
+    call denite#custom#var('grep', 'default_opts',
+      \ ['--vimgrep', '--no-heading', '--smart-case'])
+    call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+    call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'final_opts', [])
+    " Make grep command interactive. ripgrep is performant enough to enable this.
+    " NB: interactivity seems to ruin highlighting, so I've turned it off.
+    " It also means the initial search string is specific, which increases
+    " performance.
+    "call denite#custom#source('grep', 'args', ['.', '', '!'])
+endif
+
+" NB: It doesn't seem like "-auto-preview" comes at any cost, and it's super
+" cool, so I'm keeping it in.
+" NB: "-auto-preview" definitely has a steep cost.
+nnoremap <silent> <C-s> :<C-u>Denite grep<CR>
+" This is analagous to "find uses of."
+" By default, load results into quickfix, since there will likely be more than
+" one. Since this starts in normal mode, use "*" to mark all candidates, then
+" "<CR>" to load into quickfix.
+" NB: This is not meant to replace "jump to definition" and doesn't work well
+" for scalar responses.
+nnoremap <silent> <C-d> :<C-u>DeniteCursorWord grep
+\ -mode=normal
+\ -default-action=quickfix
 \ <CR>
 
-" Only make the grep/git source interactive, as it's fast enough to not choke.
-" TODO investigate making this toggleable or adding an initial delay?
-" TODO figure out how this interacts with <C-R><C-W> insertion?
-call denite#custom#source('grep/git', 'args', ['', '', '!'])
 
 
 " Adjust mappings for the prompt.
