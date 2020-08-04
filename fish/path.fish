@@ -1,11 +1,10 @@
 # Path additions
-for i in \
-        (stack path --local-bin) \
-        "Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin" \
-        "/Users/neilvyas/code/personal/latex" \
-        "$HOME/.cargo/bin" \
-        "$HOME/nvimbin"
-    if not contains $i $PATH
-        set -gx PATH $i $PATH
-    end
-end
+# Do this in one expression; calling set multiple times in a loop can cause
+# performance issues resulting in slow startup.
+set -gx PATH \
+"$HOME/.cargo/bin" "$HOME/nvimbin" \
+  # for pyenv-init
+"/Users/neilvyas/.pyenv/bin" \
+  # for pyenv-virtualenv init
+"/Users/neilvyas/.pyenv/plugins/pyenv-virtualenv/shims" \
+ $PATH
